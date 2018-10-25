@@ -1,0 +1,31 @@
+{
+  "name": "ufp-sidt-example-todo-app",
+  "version": "1.0.0",
+  "description": "A simple node express todo app using mysql to store data",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrontendSolutionsGmbH/ufp-sidt-template.git"
+  },
+  "keywords": [
+    "ufp",
+    "sidt",
+    "microservice",
+    "application",
+    "template"
+  ],
+  "author": "c.Kleinhuis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FrontendSolutionsGmbH/ufp-sidt-template/issues"
+  },
+  "homepage": "https://github.com/FrontendSolutionsGmbH/ufp-sidt-template#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}
