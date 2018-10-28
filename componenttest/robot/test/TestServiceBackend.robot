@@ -37,20 +37,20 @@ Test Service Index Todos Happy
 *** Keywords ***
 Get Items
     [Documentation]    get all todo items
-    [Tags]    backend    service  critical
+    [Tags]    backend    service    critical
     ${result}=    Rest Get    http://${SERVICE_NAME1}:${SERVICE_PORT1}    /todos
     [Return]    ${result}
 
 Get Item
     [Arguments]    ${itemId}
     [Documentation]    get a todo item
-    [Tags]    backend    service  critical
+    [Tags]    backend    service    critical
     ${result}=    Rest Get    http://${SERVICE_NAME1}:${SERVICE_PORT1}    /todos/${itemId}
     [Return]    ${result}
 
 Rest Post
     [Arguments]    ${protocolHostPort}    ${uri}    ${data}
-    [Tags]    backend    service  critical
+    [Tags]    backend    service    critical
     Create Session    temp-name    ${protocolHostPort}
     ${headers}=    Create Dictionary    Content-Type=application/json
     ${result}=    Post Request    temp-name    ${uri}    ${data}    headers=${headers}
@@ -59,7 +59,7 @@ Rest Post
 
 Rest Get
     [Arguments]    ${protocolHostPort}    ${uri}
-    [Tags]    backend    service  critical
+    [Tags]    backend    service    critical
     Create Session    temp-name    ${protocolHostPort}
     ${result}=    Get Request    temp-name    ${uri}
     Log    Response Text ${result.text}
