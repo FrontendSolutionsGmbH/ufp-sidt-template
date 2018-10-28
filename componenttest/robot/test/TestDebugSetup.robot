@@ -15,14 +15,14 @@ ${SERVICE_PORT4}    80
 *** Test Cases ***
 Test Debug Setup Index
     [Documentation]    testing develop index page
-    [Tags]    debug
+    [Tags]    debug  non-critical
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
     Wait Until Page Contains    UFP-SIDT
     Capture Page Screenshot    ScreenshotDebugEntryPoint.png
 
 Test Debug Setup Swagger
     [Documentation]    testing swagger gui is reachable
-    [Tags]    debug
+    [Tags]    debug  non-critical
     Open Browser    http://${SERVICE_NAME3}:${SERVICE_PORT3}    Chrome
     Wait Until Page Contains    swagger
     Wait Until Page Contains    /todos
@@ -33,7 +33,7 @@ Test Debug Setup Swagger
 
 Test Debug Setup PhpMyAdmin
     [Documentation]    testing phpmyadmin gui is reachable
-    [Tags]    debug
+    [Tags]    debug  non-critical
     Open Browser    http://${SERVICE_NAME2}:${SERVICE_PORT2}    Chrome
     Wait Until Page Contains    sidt-todo-app
     Capture Page Screenshot    PhpMyAdmin.png

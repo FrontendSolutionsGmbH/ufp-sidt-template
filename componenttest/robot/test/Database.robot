@@ -21,10 +21,3 @@ Clear TodoApp
     Delete All Rows From Table  todos
     Log  Table Cleared
 
-*** Test Cases ***
-HelloWorld Database
-     [Tags]    database
-     Log to console    Hello World Database
-
-
-
