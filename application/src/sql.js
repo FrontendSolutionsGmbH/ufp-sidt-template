@@ -16,32 +16,58 @@ const openConnection = () => {
     return connection
 }
 
-const getTodos = () => {
+const getTodos = (cb) => {
     const connection = openConnection()
     connection.query(`SELECT * from ${tableName}`, function (error, results, fields) {
         if (error) throw error
-        console.log('The stored todos are: ', results)
+        console.log('The stored todos are: ', cb, results)
+        cb(results)
     })
 
     connection.end()
-
 }
 
-const saveTodo = ({text}) => {
+const getTodo = (id, cb) => {
     const connection = openConnection()
-    connection.query(`INSERT INTO ${tableName}  (todo) VALUES ( '${text}');`, function (error, results, fields) {
+    const queryString = `SELECT * from ${tableName} where id =${Number.parseFloat(id)}`
+    console.log('Executing Query', queryString)
+    connection.query(queryString, function (error, results, fields) {
+        if (error) throw error
+        console.log('The stored todos are: ', cb, results)
+        cb(results)
+    })
+
+    connection.end()
+}
+const deleteTodo = (id, cb) => {
+    const connection = openConnection()
+    const queryString = `DELETE FROM ${tableName} where id =${Number.parseFloat(id)}`
+    console.log('Executing Query', queryString)
+    connection.query(queryString, function (error, results, fields) {
+        if (error) throw error
+        console.log('The stored todos are: ', cb, results)
+        cb(results)
+    })
+
+    connection.end()
+}
+
+const saveTodo = ({todo},cb) => {
+    const connection = openConnection()
+    connection.query(`INSERT INTO ${tableName}  (todo) VALUES ( '${todo}');`, function (error, results, fields) {
         if (error) throw error
         console.log('The solution is: ', results[0])
+        cb(results)
     })
 
     connection.end()
 
 }
 
-saveTodo({text: 'HELLO'})
-console.log('Stored todos are', getTodos())
+console.log('Stored todos are', getTodos((data => console.log)))
 module.exports = {
     getTodos: getTodos,
+    getTodo: getTodo,
     saveTodo: saveTodo
 
 }

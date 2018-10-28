@@ -2,6 +2,11 @@ var express = require('express')
 var path = require('path')
 var todos = require('./sql')
 var app = express()
+
+var SwaggerValidator = require('swagger-object-validator');
+var swagger = require('../api/swaggerDefinition');
+var validator = new SwaggerValidator.Handler(swagger)
+app.use(express.json());
 /**
  * @swagger
  *
@@ -38,7 +43,6 @@ const PORT = 3000
  *     description: Get all todos
  *     produces:
  *       - application/json
- *
  *     responses:
  *       200:
  *         description: All todos array
@@ -48,7 +52,15 @@ const PORT = 3000
  *              $ref: '#/definitions/ToDo'
  */
 app.get('/todos', function (req, res) {
-    res.send('Hello World')
+    console.log('Getting todos')
+    todos.getTodos(async data => {
+        console.log('Todos returned', res)
+        console.log('Todos returned', data)
+
+        res.set('Access-Control-Allow-Origin', '*')
+        // res.send("HALLO")
+        res.json(data)
+    })
 })
 /**
  * @swagger
@@ -68,14 +80,39 @@ app.get('/todos', function (req, res) {
  *         schema:
  *           $ref: '#/definitions/NewToDo'
  *     responses:
- *       200:
+ *       204:
  *         description: entry created
+ *
+ *       400:
+ *         description: Bad request with syntax errors in response oject
  *         schema:
  *           type: object
- *           $ref: '#/definitions/ToDo'
  */
 app.post('/todos', function (req, res) {
-    res.send('Hello World')
+    console.log('Post Todos IS ', req.body)
+    const input = req.body
+
+    res.set('Access-Control-Allow-Origin', '*')
+    validator.validateModel(input, 'ToDo', (err, result) => {
+        console.log(JSON.stringify(err), result);
+
+        if (err) {
+            res.status(500)
+        } else {
+            console.log(result.humanReadable());
+            if (result.errors.length === 0) {
+                todos.saveTodo(input, async data => {
+                    res.status(204)
+                })
+            } else {
+                console.log('Todo Errors are', result.errors)
+                res.status(400)
+                res.json(result.errorsWithStringTypes())
+            }
+        }
+
+    });
+
 })
 /**
  * @swagger
@@ -91,17 +128,19 @@ app.post('/todos', function (req, res) {
  *         in: path
  *         required: true
  *         type: string
- *     responses:
- *       200:
- *         description: the entry
- *         schema:
- *           type: object
- *           $ref: '#/definitions/ToDo'
+ *
  */
 app.get('/todos/:id', function (req, res) {
 
-    res.send(`tODO ID: ${req.params.id}  ${todos.getTodos()}`)
+    console.log('Getting todo')
+    todos.getTodo(req.params.id, async data => {
+        console.log('Todo returned', res)
+        console.log('Todo returned', data)
 
+        res.set('Access-Control-Allow-Origin', '*')
+        // res.send("HALLO")
+        res.json(data[0])
+    })
 })
 /**
  * @swagger
@@ -121,8 +160,13 @@ app.get('/todos/:id', function (req, res) {
  */
 app.delete('/todos/:id', function (req, res) {
 
-    res.send(`tODO ID: ${req.params.id}  ${todos.getTodos()}`)
-
+    console.log('Deleting todo')
+    todos.getTodo(req.params.id, async data => {
+        console.log('Todo returned', res)
+        console.log('Todo returned', data)
+        res.set('Access-Control-Allow-Origin', '*')
+        res.status(200)
+    })
 })
 
 /**
@@ -139,8 +183,8 @@ app.delete('/todos/:id', function (req, res) {
  *         description: the swagger definition of this api
  */
 app.get('/v1/swagger.json', function (req, res) {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.sendFile(path.resolve(__dirname, '../api/swaggerDefinition.json'));
+    res.set('Access-Control-Allow-Origin', '*')
+    res.sendFile(path.resolve(__dirname, '../api/swaggerDefinition.json'))
 })
 
 app.listen(PORT)

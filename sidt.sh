@@ -19,11 +19,10 @@ SCRIPT_NAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
 
 STACK_LOCATION="${SCRIPT_HOME}componenttest/docker-compose-"
-STACK_LOCATION_SERVICE="${SCRIPT_HOME}componenttest/docker-compose-service.yml"
-STACK_LOCATION_INFRA="${SCRIPT_HOME}componenttest/docker-compose-infrastructure.yml"
-STACK_LOCATION_DEBUG="${SCRIPT_HOME}componenttest/docker-compose-debug.yml"
-STACK_LOCATION_TEST="${SCRIPT_HOME}componenttest/docker-compose-test.yml"
-
+STACK_LOCATION_SERVICE="${STACK_LOCATION}service.yml"
+STACK_LOCATION_INFRA="${STACK_LOCATION}infrastructure.yml"
+STACK_LOCATION_DEBUG="${STACK_LOCATION}debug.yml"
+STACK_LOCATION_TEST="${STACK_LOCATION}test.yml"
 
 START=1
 STOP=0
@@ -32,7 +31,6 @@ LOG_STACK=0
 STATE_STACK=0
 PULL_STACK=0
 DEBUG=0
-
 
 BACKGROUND="-d"
 CREATE=0

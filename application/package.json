@@ -32,6 +32,8 @@
     "flywaydb-cli": "^0.5.1",
     "global": "^4.3.2",
     "mysql": "2.16.0",
-    "swagger-jsdoc": "3.2.3"
+    "swagger-jsdoc": "3.2.3",
+    "swagger-model-validator": "^3.0.5",
+    "swagger-object-validator": "^1.1.7"
   }
 }
