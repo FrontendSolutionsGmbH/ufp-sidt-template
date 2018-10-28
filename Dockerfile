@@ -1,11 +1,19 @@
-FROM node
+# Example Root Dockerfile, this can be multistage and whatever, this time we build anode8 application
+FROM node:8-slim
+EXPOSE 3000
 
-COPY app /application
+# Register search path of installed app node modules
+ENV PATH ${PATH}:/application/node_modules/.bin
+# Copy the Application data
+COPY application /application
 
 WORKDIR application
 
+# Install dependencies
 RUN npm install
+# Create Swagger apidoc
+RUN npm run swagger
 
 
-CMD ["node","src/server.js"]
+CMD ["npm","run","app"]
 

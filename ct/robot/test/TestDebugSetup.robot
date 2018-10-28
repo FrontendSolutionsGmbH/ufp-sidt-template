@@ -12,3 +12,6 @@ Test Debug Setup
     Open Browser    http://${SERVICE_NAME1}:${SERVICE_PORT1}    Chrome
     Wait Until Page Contains    UFP-SIDT
     Capture Page Screenshot    ScreenshotDebugEntryPoint.png
+    Click Element    PhpMyAdmin
+    Sleep    5s
+    Capture Page Screenshot    PhpAdmin.png

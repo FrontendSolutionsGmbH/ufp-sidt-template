@@ -5,5 +5,10 @@ services:
 
     ports:
     - "3000:3000"
+    environment:
+    - DEMO_SQL_HOST=todo-mysql
+    - DEMO_SQL_USER=root
+    - DEMO_SQL_PASSWORD=root
+    - DEMO_SQL_DATABASE=sidt-todo-app
 
 
