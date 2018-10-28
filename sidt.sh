@@ -7,8 +7,7 @@ log ""
 log "SIDT - Service Infrastructure Debug Test"
 log ""
 
-ACTIVE_STACKS=()
-
+ACTIVE_STACKS=(infra service debug test)
 
 ###
 # Variables
@@ -19,26 +18,23 @@ SCRIPT_PATH=$(realpath "$0")
 SCRIPT_NAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
 
-STACK_LOCATION="${SCRIPT_HOME}ct/docker-compose-"
-STACK_LOCATION_SERVICE="${SCRIPT_HOME}ct/docker-compose-service.yml"
-STACK_LOCATION_INFRA="${SCRIPT_HOME}ct/docker-compose-infrastructure.yml"
-STACK_LOCATION_DEBUG="${SCRIPT_HOME}ct/docker-compose-debug.yml"
-STACK_LOCATION_TEST="${SCRIPT_HOME}ct/docker-compose-test.yml"
+STACK_LOCATION="${SCRIPT_HOME}componenttest/docker-compose-"
+STACK_LOCATION_SERVICE="${SCRIPT_HOME}componenttest/docker-compose-service.yml"
+STACK_LOCATION_INFRA="${SCRIPT_HOME}componenttest/docker-compose-infrastructure.yml"
+STACK_LOCATION_DEBUG="${SCRIPT_HOME}componenttest/docker-compose-debug.yml"
+STACK_LOCATION_TEST="${SCRIPT_HOME}componenttest/docker-compose-test.yml"
 
 
 START=1
 STOP=0
 
-STACK_INFRA=0
-STACK_DEBUG=0
-STACK_SERVICE=0
-STACK_TEST=0
 LOG_STACK=0
+STATE_STACK=0
 PULL_STACK=0
 DEBUG=0
 
 
-BACKGROUND=""
+BACKGROUND="-d"
 CREATE=0
 
 COMPOSE_PROJECT_NAME="${PROJECT_NAME}componenttest"
@@ -61,13 +57,14 @@ help() {
   echo "   -l <stack>  Show the logs of stacks"
   echo "   -u <stack>  Starts the given stack. Possible stacks see below!"
   echo "   -d <stack>  Stops the given stack. Possible stacks see below!"
+  echo "   -s <stack>  Stack state ps"
   echo ""
   echo "   Possible Stacks:"
   echo "     infra     The infrastructure needed by the services"
   echo "     service   The involved services"
   echo "     debug     The debug tools"
   echo "     all       All these stacks"
-  echo "     *any      Any other ct/docker-compose-[*any].yml"
+  echo "     *any      Any other componenttest/docker-compose-[*any].yml"
   echo ""
   echo " Default behavior: Does Nothing"
   echo ""
@@ -79,13 +76,19 @@ pullStack() {
     COMPOSE_FILENAME=$1
 
 	log "Pulling Stack ${COMPOSE_FILENAME}"
-    docker-compose -f ${COMPOSE_FILENAME} pull
+    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} pull
 }
 
 logStack() {
     COMPOSE_FILENAME=$1
-    log "Loggin Stack ${COMPOSE_FILENAME}"
-    docker-compose -f ${COMPOSE_FILENAME} logs
+    log "Logging Stack ${COMPOSE_FILENAME}"
+    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME}logs
+}
+
+statsStack() {
+    COMPOSE_FILENAME=$1
+    log "Stats Stack ${COMPOSE_FILENAME}"
+    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} ps
 }
 
 startStack() {
@@ -100,7 +103,7 @@ startStack() {
 	  if [ "$COMPOSE_FILENAME" = "$STACK_LOCATION_SERVICE" ]; then
     	#    hnandle call to docker build of main service in root Dockerfile
 	log "Building main docker image $PROJECT_NAME:$VERSION"
-        docker build   --no-cache -t $PROJECT_NAME:$VERSION  -t $PROJECT_NAME:latest .
+        docker build   --no-cache -t $PROJECT_NAME:$VERSION  -t $PROJECT_NAME:latest application/.
     fi
 
 		docker-compose -f $COMPOSE_FILENAME build --no-cache  --force-rm
@@ -132,6 +135,8 @@ pullAllImages() {
 }
 
 chooseServices() {
+
+    ACTIVE_STACKS=()
     case $1 in
        all)
             ACTIVE_STACKS+=("infra")
@@ -146,7 +151,6 @@ chooseServices() {
     esac
 }
 
-
 ###
 # Main
 ###
@@ -155,11 +159,11 @@ if [ "$#" -ge 1 ]; then
     STACK_SERVICE=0
 fi
 
-while getopts 'u:d:p:l:chb' OPTION; do
+while getopts 'u:d:p:l:s:chb' OPTION; do
   case $OPTION in
     b)
     	log "Background flag -b found, starting in background"
-        BACKGROUND="-d"
+        BACKGROUND=""
     ;;
     p)
     	log "Pull All Images flag -p found, pulling all images"
@@ -168,6 +172,13 @@ while getopts 'u:d:p:l:chb' OPTION; do
     c)
     	log "Create flag -c found, (re-)creating stacks/images"
         CREATE=1
+    ;;
+ 	s)
+    	log "State flag -s found,  printing stats"
+        STATE_STACK=1
+        START=0
+        STOP=0
+        chooseServices $OPTARG
     ;;
 
     l)
@@ -197,29 +208,42 @@ while getopts 'u:d:p:l:chb' OPTION; do
   esac
 done
 
+log ""
+log "SIDT - Performing action on [${ACTIVE_STACKS[*]}]"
+log ""
 
-log ""
-log "SIDT - Performing action on [${ACTIVE_STACKS}]"
-log ""
 execute(){
     log "Executing ${1}"
 
-    if [ "$STOP" -eq "1" ];then stopStack $1 ;fi
-    if [ "$START" -eq "1" ];then startStack $1 ;fi
-    if [ "$LOG_STACK" -eq "1" ];then logStack $1 ;fi
-    if [ "$PULL_STACK" -eq "1" ];then pullStack $1 ;fi
+    if [ "$STOP" -eq "1" ];then
+     stopStack $1
+    fi
+    if [ "$START" -eq "1" ];then
+    startStack $1
+    fi
+    if [ "$LOG_STACK" -eq "1" ];then
+    logStack $1
+    fi
+    if [ "$PULL_STACK" -eq "1" ];then
+    pullStack $1
+    fi
+    if [ "$STATE_STACK" -eq "1" ];then
+    statsStack $1
+    fi
 }
 
 if [ "$DEBUG" -eq "1" ]; then
 set -x
 fi
-          for stack_name in $ACTIVE_STACKS
-          do
-                execute ${STACK_LOCATION}${stack_name}.yml
-          done
+
+for stack_name in "${ACTIVE_STACKS[@]}"
+do
+ 	execute ${STACK_LOCATION}${stack_name}.yml
+done
 
 log ""
 log "SIDT - ${ACTIVE_STACKS}"
 log "SIDT - Service Infrastructure Debug Test Exit"
 log ""
+
 exit ${RESULT}
