@@ -59,7 +59,7 @@ app.get('/todos', function (req, res) {
 
         res.set('Access-Control-Allow-Origin', '*')
         // res.send("HALLO")
-        res.json(data)
+        res.json(data).sendStatus(200)
     })
 })
 /**
@@ -68,8 +68,6 @@ app.get('/todos', function (req, res) {
  * /todos:
  *   post:
  *     description: Post a new entry
- *     produces:
- *       - application/json
  *     consumes:
  *       - application/json
  *     parameters:
@@ -92,22 +90,20 @@ app.post('/todos', function (req, res) {
     console.log('Post Todos IS ', req.body)
     const input = req.body
 
-    res.set('Access-Control-Allow-Origin', '*')
     validator.validateModel(input, 'ToDo', (err, result) => {
         console.log(JSON.stringify(err), result);
 
         if (err) {
-            res.status(500)
+            res.sendStatus(500)
         } else {
             console.log(result.humanReadable());
             if (result.errors.length === 0) {
                 todos.saveTodo(input, async data => {
-                    res.status(204)
+                    res.sendStatus(204)
                 })
             } else {
                 console.log('Todo Errors are', result.errors)
-                res.status(400)
-                res.json(result.errorsWithStringTypes())
+                res.status(400).json(result.errorsWithStringTypes())
             }
         }
 
@@ -139,7 +135,7 @@ app.get('/todos/:id', function (req, res) {
 
         res.set('Access-Control-Allow-Origin', '*')
         // res.send("HALLO")
-        res.json(data[0])
+        res.status(400).json(data[0])
     })
 })
 /**
@@ -165,7 +161,7 @@ app.delete('/todos/:id', function (req, res) {
         console.log('Todo returned', res)
         console.log('Todo returned', data)
         res.set('Access-Control-Allow-Origin', '*')
-        res.status(200)
+        res.sendStatus(200)
     })
 })
 
@@ -186,6 +182,12 @@ app.get('/v1/swagger.json', function (req, res) {
     res.set('Access-Control-Allow-Origin', '*')
     res.sendFile(path.resolve(__dirname, '../api/swaggerDefinition.json'))
 })
+app.options("/*", function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+    res.sendStatus(200);
+});
 
 app.listen(PORT)
 console.log(`Server running on ${HOST}:${PORT}`)

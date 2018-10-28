@@ -12,8 +12,8 @@ ACTIVE_STACKS=(infra service debug test)
 ###
 # Variables
 ###
-PROJECT_NAME="ufp-sidt-example-app"
-VERSION=6
+export PROJECT_NAME="ufp-sidt-example-app"
+export VERSION=6
 SCRIPT_PATH=$(realpath "$0")
 SCRIPT_NAME="$(basename "$(test -L "$0" && readlink "$0" || echo "$0")")"
 SCRIPT_HOME=${SCRIPT_PATH%$SCRIPT_NAME}
@@ -30,7 +30,7 @@ STOP=0
 LOG_STACK=0
 STATE_STACK=0
 PULL_STACK=0
-DEBUG=0
+DEBUG=1
 
 BACKGROUND="-d"
 CREATE=0
@@ -104,18 +104,18 @@ startStack() {
         docker build   --no-cache -t $PROJECT_NAME:$VERSION  -t $PROJECT_NAME:latest application/.
     fi
 
-		docker-compose -f $COMPOSE_FILENAME build --no-cache  --force-rm
+		docker-compose -f $COMPOSE_FILENAME -p ${COMPOSE_PROJECT_NAME} build  --no-cache --force-rm
 
 	fi
-
-    docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND}
+     RESULT=$?
+    docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND} --renew-anon-volumes --force-recreate
 }
 stopStack() {
 
     COMPOSE_FILENAME=$1
 	log "Stopping Stack ${COMPOSE_FILENAME}"
 
-    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} down
+    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} down --rmi all
 }
 
 logAllImages() {

@@ -27,13 +27,13 @@
     "url": "https://github.com/FrontendSolutionsGmbH/ufp-sidt-template/issues"
   },
   "homepage": "https://github.com/FrontendSolutionsGmbH/ufp-sidt-template#readme",
+  "devDependencies": {
+    "flywaydb-cli": "^0.5.1"
+  },
   "dependencies": {
     "express": "4.16.4",
-    "flywaydb-cli": "^0.5.1",
-    "global": "^4.3.2",
     "mysql": "2.16.0",
     "swagger-jsdoc": "3.2.3",
-    "swagger-model-validator": "^3.0.5",
     "swagger-object-validator": "^1.1.7"
   }
 }

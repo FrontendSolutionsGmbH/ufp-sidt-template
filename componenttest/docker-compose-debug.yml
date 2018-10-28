@@ -31,8 +31,8 @@ services:
     - CFG_WELCOME_ENTRIES_1_TEXTS_0_COLOR=secondary
     - CFG_WELCOME_ENTRIES_1_TEXTS_0_TEXT=The Service stack, the NodeJS Todo App
 
-    - CFG_WELCOME_ENTRIES_1_BUTTONS_2_LABEL=UFP SIDT Template Todo App
-    - CFG_WELCOME_ENTRIES_1_BUTTONS_2_LINK=http://localhost:3000
+    - CFG_WELCOME_ENTRIES_1_BUTTONS_2_LABEL=UFP SIDT Template Todo App Swagger Gui
+    - CFG_WELCOME_ENTRIES_1_BUTTONS_2_LINK=http://localhost:8084
     - CFG_WELCOME_ENTRIES_1_BUTTONS_2_DESCRIPTION=The todo app REST Backend It is started using `./stack.sh -u service
 
     - CFG_WELCOME_ENTRIES_2_TEXTS_0_TITLE=I - Infrastructure Stack
@@ -48,11 +48,6 @@ services:
     - CFG_WELCOME_ENTRIES_3_TEXTS_0_COLOR=secondary
     - CFG_WELCOME_ENTRIES_3_TEXTS_0_TEXT=The Debug stack, provides all of the clients linked on this page
 
-    - CFG_WELCOME_ENTRIES_3_BUTTONS_0_LABEL=Portainer
-    - CFG_WELCOME_ENTRIES_3_BUTTONS_0_DESCRIPTION=For showing debug functionality usage of SIDT paradigm a Portainer is started up in debug stack <p> start using  `./stack.sh -u debug</p>
-    - CFG_WELCOME_ENTRIES_3_BUTTONS_0_LINK=http://localhost:8081
-    - CFG_WELCOME_ENTRIES_3_BUTTONS_0_TARGET=portainer
-    - CFG_WELCOME_ENTRIES_3_BUTTONS_0_COLOR=danger
 
     - CFG_WELCOME_ENTRIES_4_TEXTS_0_TITLE=T - Test Stack
     - CFG_WELCOME_ENTRIES_4_TEXTS_0_COLOR=secondary
@@ -65,19 +60,6 @@ services:
 
     ports:
     - "8080:3000"
-
-  ##############################################
-  # Portainer
-  #
-  # this serves as an example, as general multi puprose debug container this is included
-  #
-  portainer:
-    image: portainer/portainer
-    volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-    - "8081:9000"
-    command: ["--no-auth"]
 
   ##############################################
   # The PhpMyAdmin
@@ -109,6 +91,6 @@ services:
   swagger:
     image: swaggerapi/swagger-ui
     environment:
-    - API_URL=http://localhost:13000/v1/swagger.json
+    - API_URL=http://ufp-sidt-example-app:3000/v1/swagger.json
     ports:
     - "8084:8080"
