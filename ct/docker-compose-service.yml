@@ -1,0 +1,9 @@
+version: '2'
+services:
+  ufp-sidt-example-app:
+    image: ufp-sidt-example-app:latest
+
+    ports:
+    - "3000:3000"
+
+

@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+
+  ##############################################
+  # The MySQL Database
+  #
+  # the database that is used by the nodeJS app and the only infrastructure needed for the example
+  #
+  todo-mysql:
+    image: mysql:5.7
+    ports:
+    - "3306:3306"
+    environment:
+    - "MYSQL_ROOT_USER=root"
+    - "MYSQL_ROOT_PASSWORD=root"
+    - "MYSQL_DATABASE=sidt-todo-app"

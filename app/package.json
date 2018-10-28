@@ -26,6 +26,7 @@
   "homepage": "https://github.com/FrontendSolutionsGmbH/ufp-sidt-template#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "sql-migrations": "^1.0.5"
   }
 }
