@@ -118,6 +118,18 @@ stopStack() {
     docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} down --rmi all
 }
 
+
+initialiseSIDT(){
+
+	echo "
+	version: '2'
+services:
+  ufp-sidt-example-app:
+    image: ufp-sidt-example-app:6
+    "> hurgi/docker-compose-service.yml
+
+}
+
 logAllImages() {
     logStack ${STACK_LOCATION_SERVICE}
     logStack ${STACK_LOCATION_INFRA}

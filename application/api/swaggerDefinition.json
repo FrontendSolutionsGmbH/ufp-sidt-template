@@ -1,0 +1,145 @@
+{
+  "info": {
+    "title": "UFP SIDT Example Todo App Backend",
+    "version": "1.0.0",
+    "description": "A Sample Todo Api"
+  },
+  "basePath": "/",
+  "swagger": "2.0",
+  "paths": {
+    "/todos": {
+      "get": {
+        "description": "Get all todos",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "All todos array",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ToDo"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Post a new entry",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "todo",
+            "description": "The Todo Object to be added",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NewToDo"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "entry created"
+          },
+          "400": {
+            "description": "Bad request with syntax errors in response oject",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/todos/{id}": {
+      "get": {
+        "description": "Get Single todo",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Id of todo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete Single todo",
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Id of todo",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "empty result"
+          }
+        }
+      }
+    },
+    "/v1/swagger.json": {
+      "get": {
+        "description": "Get swagger definition",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "the swagger definition of this api"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NewToDo": {
+      "type": "object",
+      "required": [
+        "todo"
+      ],
+      "properties": {
+        "todo": {
+          "type": "string"
+        }
+      }
+    },
+    "ToDo": {
+      "type": "object",
+      "required": [
+        "todo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "todo": {
+          "type": "string"
+        }
+      }
+    },
+    "ToDos": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ToDo"
+      }
+    }
+  },
+  "responses": {},
+  "parameters": {},
+  "securityDefinitions": {},
+  "tags": []
+}
