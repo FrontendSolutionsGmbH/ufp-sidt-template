@@ -90,18 +90,9 @@ services:
   # Provide a swagger-ui showing the defined swagger api of service
   #
   swagger:
-    image: swaggerapi/swagger-ui
+    image: ckleinhuis/ufp-swagger-proxy:10
     environment:
-    - API_URL=http://ufp-sidt-example-app:3000/v1/swagger.json
+    - URL=http://ufp-sidt-example-app:3000/v1/swagger.json
     ports:
     - "8084:8080"
 
-  ##############################################
-  # Provide a swagger-ui showing the defined swagger api of service
-  #
-  swagger2:
-    build: SwaggerUi
-    environment:
-    - API_URL=http://localhost:8085/forward?http://ufp-sidt-example-app:3000/v1/swagger.json
-    ports:
-    - "8085:8080"
