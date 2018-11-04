@@ -12,29 +12,32 @@ services:
   development-overview:
     image: ckleinhuis/ufp-env-handlebars:latest
     environment:
-    - CFG_BRAND_LABEL=Dev UFP-SIDT-Template
+    - CFG_BRAND_LABEL=Dev UFP-SIDT-TodoApp
 
-    - CFG_MENU_0_LABEL=PhpMyAdmin
-    - CFG_MENU_0_LINK=http://localhost:8082/
+    - CFG_MENU_0_LABEL=Todo App Frontend
+    - CFG_MENU_0_LINK=http://localhost:13001/
 
     - CFG_MENU_1_LABEL=Swagger GUI
     - CFG_MENU_1_LINK=http://localhost:8084
 
-    - CFG_MENU_2_LABEL=Test Report
-    - CFG_MENU_2_LINK=http://localhost:8083/report.html
+    - CFG_MENU_2_LABEL=Todo Db PhpMyAdmin
+    - CFG_MENU_2_LINK=http://localhost:8082/
 
-    - CFG_WELCOME_ENTRIES_0_TEXTS_0_TITLE=Ufp SIDT Template Debug Entrypoint
+    - CFG_MENU_3_LABEL=Test Report
+    - CFG_MENU_3_LINK=http://localhost:8083/report.html
+
+    - CFG_WELCOME_ENTRIES_0_TEXTS_0_TITLE=Ufp SIDT TodoApp Debug Entrypoint
     - CFG_WELCOME_ENTRIES_0_TEXTS_0_COLOR=secondary
     - CFG_WELCOME_ENTRIES_0_TEXTS_0_TEXT=This debug page is made extra for you developing your app, <p>SIDT Template Example App consists of a NodeJs Backend and a MySQL Database<p>
 
     - CFG_WELCOME_ENTRIES_1_TEXTS_0_TITLE=S - Service Stack
     - CFG_WELCOME_ENTRIES_1_TEXTS_0_COLOR=secondary
-    - CFG_WELCOME_ENTRIES_1_TEXTS_0_TEXT=The Service stack, the NodeJS Todo App
+    - CFG_WELCOME_ENTRIES_1_TEXTS_0_TEXT=The Service stack, consisting of the Todo Backend app, and the Todo frontend client, the links lead to the app frontend, and a swagger gui providing access to the app backeend
 
 
     - CFG_WELCOME_ENTRIES_1_BUTTONS_1_LABEL=UFP SIDT Template Todo App Swagger Gui
     - CFG_WELCOME_ENTRIES_1_BUTTONS_1_LINK=http://localhost:8084
-    - CFG_WELCOME_ENTRIES_1_BUTTONS_1_DESCRIPTION=The todo app REST Backend It is started using `./stack.sh -u service
+    - CFG_WELCOME_ENTRIES_1_BUTTONS_1_DESCRIPTION=The todo app REST Backend
 
 
     - CFG_WELCOME_ENTRIES_1_BUTTONS_2_LABEL=UFP SIDT Template Todo App Frontend Gui
@@ -102,3 +105,11 @@ services:
     ports:
     - "8084:8080"
 
+
+  start-dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+    - swagger
+    - web
+    - phpmyadmin
+    - development-overview

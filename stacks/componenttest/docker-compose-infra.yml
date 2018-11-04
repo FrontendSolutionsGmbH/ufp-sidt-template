@@ -15,3 +15,8 @@ services:
     - "MYSQL_ROOT_USER=root"
     - "MYSQL_ROOT_PASSWORD=root"
     - "MYSQL_DATABASE=sidt-todo-app"
+
+  start-dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+    - todo-mysql

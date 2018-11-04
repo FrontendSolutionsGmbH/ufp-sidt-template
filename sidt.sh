@@ -145,17 +145,14 @@ startStack() {
 
     if [ -f $1 ]; then
         log "Starting Stack with start-dependencies entrypoint"
-        docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} run --rm start-dependencies
+        docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} run  --rm start-dependencies  ${BACKGROUND}
         if [ "$?" -ne "0" ]; then
-        log "wait-for-dependencies not found starting normal"
+        log "start-dependencies not found starting normal"
             docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND}
         fi
     else
         log "File not found ${1}"
     fi
-
-
-    docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND}
     RESULT=$?
 }
 stopStack() {
