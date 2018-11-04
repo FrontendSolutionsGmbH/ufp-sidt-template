@@ -13,22 +13,29 @@ app.use(express.json());
  * definitions:
  *   NewToDo:
  *     type: object
+ *     description: Newtodo object
  *     required:
  *       - todo
  *     properties:
  *       todo:
  *         type: string
+ *         description: The todo action to store
+ *         example: To the work!
  *   ToDo:
+ *     description: a todo
  *     type: object
  *     required:
  *       - todo
  *     properties:
  *       id:
  *         type: string
+ *         description: The database index field
  *       todo:
  *         type: string
+ *         description: the todo action
  *   ToDos:
  *     type: array
+ *     description: a list of todos
  *     items:
  *       $ref: '#/definitions/ToDo'
  *

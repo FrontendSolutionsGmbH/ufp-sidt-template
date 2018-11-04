@@ -92,6 +92,14 @@ makeApplication(){
 ./sidt.sh -m $1
 }
 
+
+exec(){
+
+
+ ./sidt.sh $1 $2 $3 $4 $5 $6
+}
+
+
 #
 # Executes a full stack create, test and optional teardown
 #
@@ -102,13 +110,13 @@ executeStack(){
 
   log "Executing Test $1 delete result was $?"
 #  Bring up Stack detached in background, but recreate docker-compose
-  ./sidt.sh -a $1 -u all  -c
-  ./sidt.sh -a $1 -s all  -c
+  exec -a $1 -u all  -c
+  exec -a $1 -s all  -c
 #  Execute the test in foreground
-  ./sidt.sh -a $1 -u test -b  -c
+  exec -a $1 -u test -b  -c
 #  Teardown
   if [ "${TEARDOWN}" -eq "1" ];then
-  ./sidt.sh -a $1 -d all
+  exec -a $1 -d all
   fi
 }
 
