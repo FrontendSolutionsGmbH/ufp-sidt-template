@@ -1,0 +1,33 @@
+{
+  "name": "ufp-sidt-example-client",
+  "version": "1.0.0",
+  "description": "A react frontend for the todo client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "ufp b",
+    "ufp-util:createTests": "node node_modules/ufp-core/bin/createTests",
+    "ufp-make": "node node_modules/ufp-core/ext/build/scripts/make -- --LOG_LEVEL=ALL",
+    "ufp-install": "npm install && node node_modules/ufp-core/ext/Install",
+    "ufp-install-new": "npm install ../../src_modules/ufp-root",
+    "ufp-update": "node node_modules/ufp-core/ext/UpdatePackageJson",
+    "ufp-update-scripts": "node node_modules/ufp-core/ext/UpdatePackageJsonScripts",
+    "ufp-update-dependencies": "node node_modules/ufp-core/ext/UpdatePackageJsonDependencies",
+    "ufp-start": "cross-env NODE_ENV=development node node_modules/ufp-core/ext/build/scripts/start",
+    "ufp-start:dist": "node node_modules/ufp-core/ext/build/scripts/serveDist",
+    "ufp-test-util:create": "node node_modules/ufp-core/bin/createTests",
+    "ufp-start-install": "npm run ufp-install-new && npm run ufp-start",
+    "ufp-compile:production": "cross-env NODE_ENV=production npm run ufp-compile",
+    "ufp-compile:dev": "cross-env NODE_ENV=development npm run ufp-compile",
+    "ufp-compile": "node node_modules/ufp-core/ext/build/scripts/compile",
+    "ufp-lint": "eslint src --ext .jsx,.js --config node_modules/ufp-core/src/.eslintrc",
+    "ufp-lint:fix": "npm run ufp-lint -- --fix",
+    "ufp-test": "cross-env NODE_ENV=test karma start node_modules/ufp-core/ext/presets/default/config/karma.config --no-exit",
+    "ufp-test:watch": "npm run ufp-test -- --watch"
+  },
+  "author": "c.Kleinhuis",
+  "license": "ISC",
+  "dependencies": {
+    "ufp-core": "0.7.0-rc7"
+  }
+}

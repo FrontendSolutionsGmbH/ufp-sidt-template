@@ -5,10 +5,10 @@ EXPOSE 3000
 # Register search path of installed app node modules
 ENV PATH ${PATH}:/application/node_modules/.bin
 # Copy the Application data
-COPY . /application
+COPY ./server /application
 
-WORKDIR application
-
+WORKDIR /application
+ RUN ls -la
 # Install dependencies
 RUN npm install
 # Create Swagger apidoc

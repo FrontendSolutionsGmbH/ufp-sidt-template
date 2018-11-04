@@ -1,0 +1,27 @@
+version: '2'
+services:
+  ufp-sidt-example-app:
+    image: ckleinhuis/ufp-sidt-example-app:6
+    restart: always
+    ports:
+    - "3000:3000"
+    environment:
+    - DEMO_SQL_HOST=todo-mysql
+    - DEMO_SQL_USER=root
+    - DEMO_SQL_PASSWORD=root
+    - DEMO_SQL_DATABASE=sidt-todo-app
+
+
+
+  ufp-sidt-example-app-client:
+    image: ckleinhuis/ufp-sidt-example-app-client:6
+    restart: always
+    ports:
+    - "3001:80"
+
+
+  start-dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+    - ufp-sidt-example-app-client
+    - ufp-sidt-example-app

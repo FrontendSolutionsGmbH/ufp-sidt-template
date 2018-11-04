@@ -1,0 +1,18 @@
+# Example Root Dockerfile, this can be multistage and whatever, this time we build anode8 application
+FROM node:8 as build
+EXPOSE 3000
+
+# Register search path of installed app node modules
+ENV PATH ${PATH}:/application/node_modules/.bin
+# Copy the Application data
+COPY ./client /application
+
+WORKDIR /application
+ RUN ls -la
+# Install dependencies
+RUN yarn install
+# Create Swagger apidoc
+RUN npm run dist
+
+FROM nginx as final
+COPY --from=build /application/dist /usr/share/nginx/html/

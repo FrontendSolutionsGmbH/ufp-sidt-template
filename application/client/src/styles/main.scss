@@ -1,0 +1,21 @@
+
+html, body {
+  font-family : sans-serif;
+  margin      : 25px;
+  height      : 100%;
+
+}
+
+.ufp-logo {
+  float            : left;
+  background-image : url('../static/img/ufp.svg');
+  width            : 128px;
+  height           : 128px;
+}
+
+.froso-logo {
+  float            : right;
+  background-image : url('../static/img/froso_in.svg');
+  width            : 128px;
+  height           : 128px;
+}
