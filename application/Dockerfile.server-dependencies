@@ -1,5 +1,5 @@
 # Example Root Dockerfile, this can be multistage and whatever, this time we build anode8 application
-FROM ckleinhuis/ufp-sidt-example-app-server-dependencies:6
+FROM node:8-slim
 EXPOSE 3000
 
 # Register search path of installed app node modules
@@ -8,10 +8,7 @@ ENV PATH ${PATH}:/application/node_modules/.bin
 COPY ./server /application
 
 WORKDIR /application
+# Install dependencies
+RUN npm install
 
-# Create Swagger apidoc
-RUN npm run swagger
-
-
-CMD ["npm","run","app"]
 

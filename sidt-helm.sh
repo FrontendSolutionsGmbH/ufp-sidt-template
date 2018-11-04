@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-  set -x
+
+
 loadEnv(){
 
 filename=".env"
@@ -9,7 +10,7 @@ while IFS='=' read -r key value ; do
 done < "$filename"
 
 }
-
+  loadEnv
 log(){
 	echo "[$(date +"%Y-%m-%d %H:%M:%S")] $@"
 }
@@ -27,7 +28,7 @@ log ""
 
     logDivider
 THIS_APP_AREAS=(componenttest)
-THIS_APP_SERVICES=(service client)
+THIS_APP_SERVICES=(service-dependencies service client-dependencies client )
 
 TEST=0
 MAKE=0
@@ -194,7 +195,7 @@ findServices(){
      else
         VALUE=${dockerFilename//Dockerfile\./}
       fi
-      log "sidt.sh -m ${VALUE} "
+      log "sidt.sh -m ${VALUE} ${SIDT_PROJECT_NAME}-${VALUE}:${SIDT_VERSION}"
 
     else
     log "WANING: NOT FOUND: ${dockerFilename}"
@@ -226,6 +227,9 @@ fi
 if [ "${INFO}" -eq "1" ];then
 findServices
 findAreas
+
+
+
 fi
 
 

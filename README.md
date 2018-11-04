@@ -21,6 +21,8 @@ keep alive after run
 
 	./sidt-helm.sh -t -b
 	
+after that, the debug entry point localhost:8080 redirects to all relevant informations
+	
 more info type, for individual stack start commands
 
 	./sidt-helm.sh -i

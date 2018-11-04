@@ -21,7 +21,7 @@ log ""
 ACTIVE_STACKS=(infra service debug test)
 
 CACHE="--no-cache"
-DOCKERFILESUFFIX=""
+DOCKERFILESUFFIX="service"
 
 SUITE_NAME=${SIDT_SUITE:-"componenttest"}
 
@@ -35,7 +35,7 @@ START=1
 STOP=0
 
 LOG_STACK=0
-STATE_STACK=0
+STATE_STACK=${SIDT_INFO:-0}
 PULL_STACK=0
 DEBUG=${SIDT_DEBUG:-0}
 MAKE=0
@@ -114,41 +114,57 @@ cd ..
 }
 
 pullStack() {
-    COMPOSE_FILENAME=$1
+    COMPOSE_FILENAME="${STACK_LOCATION}${1}.yml"
 
-	log "Pulling Stack ${COMPOSE_FILENAME}"
+	log "Pulling Stack ${1}"
     docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} pull
 }
 
 logStack() {
-    COMPOSE_FILENAME=$1
-    log "Logging Stack ${COMPOSE_FILENAME}"
-    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME}logs
+    COMPOSE_FILENAME="${STACK_LOCATION}${1}.yml"
+    log "Logging Stack ${1}"
+    docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} logs $2
 }
 
 statsStack() {
-    COMPOSE_FILENAME=$1
-    log "Stats Stack ${COMPOSE_FILENAME}"
+    COMPOSE_FILENAME="${STACK_LOCATION}${1}.yml"
+    log "Stats Stack ${1}"
     docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} ps
 }
 
 startStack() {
-    COMPOSE_FILENAME=$1
+    COMPOSE_FILENAME="${STACK_LOCATION}${1}.yml"
 
-	log "(Re-)Starting Stack ${COMPOSE_FILENAME}"
+	log "(Re-)Starting Stack ${1}"
 
-	stopStack  $COMPOSE_FILENAME
+	stopStack  ${1}
     if [ "$CREATE" -eq "1" ]; then
-	    log "(Re-)Creating Stack ${COMPOSE_FILENAME}"
-		  docker-compose -f $COMPOSE_FILENAME -p ${COMPOSE_PROJECT_NAME} build  --no-cache --force-rm
-	  fi
+	    log "(Re-)Creating Stack ${1}"
 
-    if [ -f $1 ]; then
+    if [ "${1}" == "service" ]; then
+      log "Recreating Dockerfile for main service"
+      makeIt
+    fi
+
+
+	  log "(Re-)Creating Stack ${1}"
+	docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} build  --no-cache --force-rm
+	 fi
+
+    if [ -f ${COMPOSE_FILENAME} ]; then
         log "Starting Stack with start-dependencies entrypoint"
-        docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} run  --rm start-dependencies  ${BACKGROUND}
+        docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} run  --rm start-dependencies
+
         if [ "$?" -ne "0" ]; then
         log "start-dependencies not found starting normal"
-            docker-compose -f $1 -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND}
+            docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} up ${BACKGROUND}
+        else
+#        check for log if run in run mode with start-dependencies
+
+        if [ -z "${BACKGROUND}"  ]; then
+#        call log with tail -f
+        logStack $1 -f
+        fi
         fi
     else
         log "File not found ${1}"
@@ -156,8 +172,8 @@ startStack() {
     RESULT=$?
 }
 stopStack() {
-    COMPOSE_FILENAME=$1
-	  log "Stopping Stack ${COMPOSE_FILENAME}"
+    COMPOSE_FILENAME="${STACK_LOCATION}${1}.yml"
+	  log "Stopping Stack ${1}"
     docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} down
 }
 
@@ -340,7 +356,7 @@ fi
 if [ "$EXECUTE" -eq "1" ]; then
   for stack_name in "${ACTIVE_STACKS[@]}"
   do
-    execute ${STACK_LOCATION}${stack_name}.yml
+    execute ${stack_name}
   done
 
 #  for stack_name in "${ACTIVE_STACKS[@]}"
