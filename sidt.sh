@@ -18,7 +18,7 @@ log ""
 log "SIDT - Service Infrastructure Debug Test"
 log ""
 
-ACTIVE_STACKS=(infra service debug test)
+ACTIVE_STACKS=()
 
 CACHE="--no-cache"
 DOCKERFILESUFFIX="service"
@@ -153,7 +153,7 @@ startStack() {
 
     if [ -f ${COMPOSE_FILENAME} ]; then
         log "Starting Stack with start-dependencies entrypoint"
-        docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} run  --rm start-dependencies
+        docker-compose -f ${COMPOSE_FILENAME} -p ${COMPOSE_PROJECT_NAME} run  --rm start-dependencies ${BACKGROUND}
 
         if [ "$?" -ne "0" ]; then
         log "start-dependencies not found starting normal"
@@ -192,7 +192,6 @@ pullAllImages() {
 }
 
 chooseServices() {
-    ACTIVE_STACKS=()
     case $1 in
        all)
             ACTIVE_STACKS+=("infra")

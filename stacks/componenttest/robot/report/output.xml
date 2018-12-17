@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20181104 21:32:23.258" generator="Robot 3.0.4 (Python 2.7.15 on linux2)">
+<robot generated="20181104 22:16:41.184" generator="Robot 3.0.4 (Python 2.7.15 on linux2)">
 <suite source="/opt/robotframework/tests" id="s1" name="Tests">
 <suite source="/opt/robotframework/tests/test" id="s1-s1" name="Test">
 <suite source="/opt/robotframework/tests/test/HelloWorld.robot" id="s1-s1-s1" name="HelloWorld">
@@ -9,14 +9,14 @@
 <arguments>
 <arg>Hello World</arg>
 </arguments>
-<status status="PASS" endtime="20181104 21:32:23.336" starttime="20181104 21:32:23.335"></status>
+<status status="PASS" endtime="20181104 22:16:41.255" starttime="20181104 22:16:41.254"></status>
 </kw>
 <tags>
 <tag>playground</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:23.337" critical="no" starttime="20181104 21:32:23.333"></status>
+<status status="PASS" endtime="20181104 22:16:41.255" critical="no" starttime="20181104 22:16:41.253"></status>
 </test>
-<status status="PASS" endtime="20181104 21:32:23.339" starttime="20181104 21:32:23.329"></status>
+<status status="PASS" endtime="20181104 22:16:41.256" starttime="20181104 22:16:41.249"></status>
 </suite>
 <suite source="/opt/robotframework/tests/test/TestDebugSetup.robot" id="s1-s1-s2" name="TestDebugSetup">
 <test id="s1-s1-s2-t1" name="Test Debug Setup Index">
@@ -26,30 +26,30 @@
 <arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
 <arg>Chrome</arg>
 </arguments>
-<msg timestamp="20181104 21:32:23.646" level="INFO">Opening browser 'Chrome' to base url 'http://development-overview:3000'.</msg>
-<status status="PASS" endtime="20181104 21:32:32.024" starttime="20181104 21:32:23.645"></status>
+<msg timestamp="20181104 22:16:41.497" level="INFO">Opening browser 'Chrome' to base url 'http://development-overview:3000'.</msg>
+<status status="PASS" endtime="20181104 22:16:49.287" starttime="20181104 22:16:41.496"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on current page.</doc>
 <arguments>
 <arg>UFP-SIDT</arg>
 </arguments>
-<status status="PASS" endtime="20181104 21:32:32.097" starttime="20181104 21:32:32.025"></status>
+<status status="PASS" endtime="20181104 22:16:49.345" starttime="20181104 22:16:49.288"></status>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes screenshot of the current page and embeds it into log file.</doc>
 <arguments>
 <arg>ScreenshotDebugEntryPoint.png</arg>
 </arguments>
-<msg timestamp="20181104 21:32:32.734" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotDebugEntryPoint.png"&gt;&lt;img src="ScreenshotDebugEntryPoint.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:32.734" starttime="20181104 21:32:32.098"></status>
+<msg timestamp="20181104 22:16:49.936" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ScreenshotDebugEntryPoint.png"&gt;&lt;img src="ScreenshotDebugEntryPoint.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 22:16:49.936" starttime="20181104 22:16:49.345"></status>
 </kw>
 <doc>testing develop index page</doc>
 <tags>
 <tag>debug</tag>
 <tag>non-critical</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:32.735" critical="no" starttime="20181104 21:32:23.642"></status>
+<status status="PASS" endtime="20181104 22:16:49.936" critical="no" starttime="20181104 22:16:41.494"></status>
 </test>
 <test id="s1-s1-s2-t2" name="Test Debug Setup Swagger">
 <kw name="Open Browser" library="SeleniumLibrary">
@@ -58,55 +58,35 @@
 <arg>http://${SERVICE_NAME3}:${SERVICE_PORT3}</arg>
 <arg>Chrome</arg>
 </arguments>
-<msg timestamp="20181104 21:32:32.741" level="INFO">Opening browser 'Chrome' to base url 'http://swagger:8080'.</msg>
-<status status="PASS" endtime="20181104 21:32:35.636" starttime="20181104 21:32:32.740"></status>
+<msg timestamp="20181104 22:16:49.942" level="INFO">Opening browser 'Chrome' to base url 'http://swagger:8080'.</msg>
+<status status="PASS" endtime="20181104 22:16:52.810" starttime="20181104 22:16:49.941"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on current page.</doc>
 <arguments>
 <arg>swagger</arg>
 </arguments>
-<status status="PASS" endtime="20181104 21:32:35.806" starttime="20181104 21:32:35.637"></status>
+<status status="PASS" endtime="20181104 22:16:52.866" starttime="20181104 22:16:52.811"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on current page.</doc>
 <arguments>
 <arg>/todos</arg>
 </arguments>
-<status status="PASS" endtime="20181104 21:32:35.864" starttime="20181104 21:32:35.806"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on current page.</doc>
-<arguments>
-<arg>/todos/{id}</arg>
-</arguments>
-<status status="PASS" endtime="20181104 21:32:35.924" starttime="20181104 21:32:35.865"></status>
-</kw>
-<kw name="Wait Until Page Contains" library="SeleniumLibrary">
-<doc>Waits until ``text`` appears on current page.</doc>
-<arguments>
-<arg>/v1/swagger.json</arg>
-</arguments>
-<status status="PASS" endtime="20181104 21:32:35.982" starttime="20181104 21:32:35.925"></status>
-</kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<arguments>
-<arg>Swagger.png</arg>
-</arguments>
-<msg timestamp="20181104 21:32:36.582" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Swagger.png"&gt;&lt;img src="Swagger.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:36.582" starttime="20181104 21:32:35.983"></status>
+<msg timestamp="20181104 22:16:58.490" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 22:16:58.490" starttime="20181104 22:16:57.900"></status>
 </kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20181104 21:32:36.624" starttime="20181104 21:32:36.583"></status>
+<msg timestamp="20181104 22:16:58.494" level="FAIL">Text '/todos' did not appear in 5 seconds.</msg>
+<status status="FAIL" endtime="20181104 22:16:58.494" starttime="20181104 22:16:52.867"></status>
 </kw>
 <doc>testing swagger gui is reachable</doc>
 <tags>
 <tag>debug</tag>
 <tag>non-critical</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:36.625" critical="no" starttime="20181104 21:32:32.738"></status>
+<status status="FAIL" endtime="20181104 22:16:58.495" critical="no" starttime="20181104 22:16:49.939">Text '/todos' did not appear in 5 seconds.</status>
 </test>
 <test id="s1-s1-s2-t3" name="Test Debug Setup PhpMyAdmin">
 <kw name="Open Browser" library="SeleniumLibrary">
@@ -115,37 +95,37 @@
 <arg>http://${SERVICE_NAME2}:${SERVICE_PORT2}</arg>
 <arg>Chrome</arg>
 </arguments>
-<msg timestamp="20181104 21:32:36.630" level="INFO">Opening browser 'Chrome' to base url 'http://phpmyadmin:80'.</msg>
-<status status="PASS" endtime="20181104 21:32:40.001" starttime="20181104 21:32:36.630"></status>
+<msg timestamp="20181104 22:16:58.501" level="INFO">Opening browser 'Chrome' to base url 'http://phpmyadmin:80'.</msg>
+<status status="PASS" endtime="20181104 22:17:01.316" starttime="20181104 22:16:58.500"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on current page.</doc>
 <arguments>
 <arg>sidt-todo-app</arg>
 </arguments>
-<status status="PASS" endtime="20181104 21:32:40.158" starttime="20181104 21:32:40.002"></status>
+<status status="PASS" endtime="20181104 22:17:01.435" starttime="20181104 22:17:01.317"></status>
 </kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes screenshot of the current page and embeds it into log file.</doc>
 <arguments>
 <arg>PhpMyAdmin.png</arg>
 </arguments>
-<msg timestamp="20181104 21:32:40.836" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="PhpMyAdmin.png"&gt;&lt;img src="PhpMyAdmin.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:40.836" starttime="20181104 21:32:40.159"></status>
+<msg timestamp="20181104 22:17:02.093" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="PhpMyAdmin.png"&gt;&lt;img src="PhpMyAdmin.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 22:17:02.094" starttime="20181104 22:17:01.436"></status>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20181104 21:32:40.881" starttime="20181104 21:32:40.837"></status>
+<status status="PASS" endtime="20181104 22:17:02.136" starttime="20181104 22:17:02.094"></status>
 </kw>
 <doc>testing phpmyadmin gui is reachable</doc>
 <tags>
 <tag>debug</tag>
 <tag>non-critical</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:40.882" critical="no" starttime="20181104 21:32:36.627"></status>
+<status status="PASS" endtime="20181104 22:17:02.136" critical="no" starttime="20181104 22:16:58.497"></status>
 </test>
 <doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
-<status status="PASS" endtime="20181104 21:32:40.887" starttime="20181104 21:32:23.343"></status>
+<status status="PASS" endtime="20181104 22:17:02.140" starttime="20181104 22:16:41.259"></status>
 </suite>
 <suite source="/opt/robotframework/tests/test/TestServiceBackend.robot" id="s1-s1-s3" name="TestServiceBackend">
 <test id="s1-s1-s3-t1" name="Test Service Index Todos Unhappy1">
@@ -169,28 +149,28 @@
 <arg>todo-mysql</arg>
 <arg>${MYSQL_PORT}</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.479" level="INFO">Connecting using : pymysql.connect(db=sidt-todo-app, user=root, passwd=root, host=todo-mysql, port=3306, charset=None) </msg>
-<status status="PASS" endtime="20181104 21:32:41.483" starttime="20181104 21:32:41.429"></status>
+<msg timestamp="20181104 22:17:02.642" level="INFO">Connecting using : pymysql.connect(db=sidt-todo-app, user=root, passwd=root, host=todo-mysql, port=3306, charset=None) </msg>
+<status status="PASS" endtime="20181104 22:17:02.645" starttime="20181104 22:17:02.605"></status>
 </kw>
 <kw name="Delete All Rows From Table" library="DatabaseLibrary">
 <doc>Delete all the rows within a given table. Set optional input `sansTran` to True to run command without an</doc>
 <arguments>
 <arg>todos</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.484" level="INFO">Executing : Delete All Rows From Table  |  DELETE FROM todos; </msg>
-<status status="PASS" endtime="20181104 21:32:41.485" starttime="20181104 21:32:41.483"></status>
+<msg timestamp="20181104 22:17:02.646" level="INFO">Executing : Delete All Rows From Table  |  DELETE FROM todos; </msg>
+<status status="PASS" endtime="20181104 22:17:02.649" starttime="20181104 22:17:02.646"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>Table Cleared</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.486" level="INFO">Table Cleared</msg>
-<status status="PASS" endtime="20181104 21:32:41.486" starttime="20181104 21:32:41.486"></status>
+<msg timestamp="20181104 22:17:02.650" level="INFO">Table Cleared</msg>
+<status status="PASS" endtime="20181104 22:17:02.651" starttime="20181104 22:17:02.650"></status>
 </kw>
-<status status="PASS" endtime="20181104 21:32:41.486" starttime="20181104 21:32:41.428"></status>
+<status status="PASS" endtime="20181104 22:17:02.651" starttime="20181104 22:17:02.604"></status>
 </kw>
-<status status="PASS" endtime="20181104 21:32:41.487" starttime="20181104 21:32:41.427"></status>
+<status status="PASS" endtime="20181104 22:17:02.652" starttime="20181104 22:17:02.603"></status>
 </kw>
 <kw name="Rest Post">
 <tags>
@@ -212,8 +192,8 @@
 <arg>temp-name</arg>
 <arg>${protocolHostPort}</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.490" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20181104 21:32:41.491" starttime="20181104 21:32:41.489"></status>
+<msg timestamp="20181104 22:17:02.655" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20181104 22:17:02.656" starttime="20181104 22:17:02.654"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -223,8 +203,8 @@
 <assign>
 <var>${headers}</var>
 </assign>
-<msg timestamp="20181104 21:32:41.494" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
-<status status="PASS" endtime="20181104 21:32:41.494" starttime="20181104 21:32:41.492"></status>
+<msg timestamp="20181104 22:17:02.659" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20181104 22:17:02.659" starttime="20181104 22:17:02.657"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the</doc>
@@ -237,48 +217,20 @@
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20181104 21:32:41.527" level="INFO">Post Request using : alias=temp-name, uri=/todos, data="{\"todo\"", headers={u'Content-Type': u'application/json'}, files=None, allow_redirects=True </msg>
-<msg timestamp="20181104 21:32:41.527" level="INFO">${result} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.527" starttime="20181104 21:32:41.494"></status>
+<msg timestamp="20181104 22:17:02.667" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a795494d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:02.872" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a795496d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.281" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a795498d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.292" level="FAIL">ConnectionError: HTTPConnectionPool(host='ufp-sidt-example-app', port=3000): Max retries exceeded with url: /todos (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a79549a90&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',))</msg>
+<status status="FAIL" endtime="20181104 22:17:03.292" starttime="20181104 22:17:02.659"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Response Text ${result.text}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.528" level="INFO">Response Text &lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-&lt;meta charset="utf-8"&gt;
-&lt;title&gt;Error&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;pre&gt;SyntaxError: Unexpected token &amp;quot; in JSON at position 0&lt;br&gt; &amp;nbsp; &amp;nbsp;at JSON.parse (&amp;lt;anonymous&amp;gt;)&lt;br&gt; &amp;nbsp; &amp;nbsp;at createStrictSyntaxError (/application/node_modules/body-parser/lib/types/json.js:158:10)&lt;br&gt; &amp;nbsp; &amp;nbsp;at parse (/application/node_modules/body-parser/lib/types/json.js:83:15)&lt;br&gt; &amp;nbsp; &amp;nbsp;at /application/node_modules/body-parser/lib/read.js:121:18&lt;br&gt; &amp;nbsp; &amp;nbsp;at invokeCallback (/application/node_modules/raw-body/index.js:224:16)&lt;br&gt; &amp;nbsp; &amp;nbsp;at done (/application/node_modules/raw-body/index.js:213:7)&lt;br&gt; &amp;nbsp; &amp;nbsp;at IncomingMessage.onEnd (/application/node_modules/raw-body/index.js:273:7)&lt;br&gt; &amp;nbsp; &amp;nbsp;at emitNone (events.js:106:13)&lt;br&gt; &amp;nbsp; &amp;nbsp;at IncomingMessage.emit (events.js:208:7)&lt;br&gt; &amp;nbsp; &amp;nbsp;at endReadableNT (_stream_readable.js:1064:12)&lt;br&gt; &amp;nbsp; &amp;nbsp;at _combinedTickCallback (internal/process/next_tick.js:139:11)&lt;br&gt; &amp;nbsp; &amp;nbsp;at process._tickCallback (internal/process/next_tick.js:181:9)&lt;/pre&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</msg>
-<status status="PASS" endtime="20181104 21:32:41.529" starttime="20181104 21:32:41.528"></status>
-</kw>
-<msg timestamp="20181104 21:32:41.529" level="INFO">${result} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.529" starttime="20181104 21:32:41.488"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>400</arg>
-<arg>${result.status_code}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.531" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'int'&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.531" starttime="20181104 21:32:41.530"></status>
+<status status="FAIL" endtime="20181104 22:17:03.293" starttime="20181104 22:17:02.653"></status>
 </kw>
 <doc>testing index of todos in browser</doc>
 <tags>
 <tag>backend</tag>
 <tag>service</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:41.532" critical="no" starttime="20181104 21:32:41.425"></status>
+<status status="FAIL" endtime="20181104 22:17:03.293" critical="no" starttime="20181104 22:17:02.602">ConnectionError: HTTPConnectionPool(host='ufp-sidt-example-app', port=3000): Max retries exceeded with url: /todos (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a79549a90&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',))</status>
 </test>
 <test id="s1-s1-s3-t2" name="Test Service Index Todos Unhappy2">
 <kw type="setup" name="Empty Database" library="Database">
@@ -301,28 +253,28 @@
 <arg>todo-mysql</arg>
 <arg>${MYSQL_PORT}</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.539" level="INFO">Connecting using : pymysql.connect(db=sidt-todo-app, user=root, passwd=root, host=todo-mysql, port=3306, charset=None) </msg>
-<status status="PASS" endtime="20181104 21:32:41.541" starttime="20181104 21:32:41.537"></status>
+<msg timestamp="20181104 22:17:03.299" level="INFO">Connecting using : pymysql.connect(db=sidt-todo-app, user=root, passwd=root, host=todo-mysql, port=3306, charset=None) </msg>
+<status status="PASS" endtime="20181104 22:17:03.302" starttime="20181104 22:17:03.298"></status>
 </kw>
 <kw name="Delete All Rows From Table" library="DatabaseLibrary">
 <doc>Delete all the rows within a given table. Set optional input `sansTran` to True to run command without an</doc>
 <arguments>
 <arg>todos</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.542" level="INFO">Executing : Delete All Rows From Table  |  DELETE FROM todos; </msg>
-<status status="PASS" endtime="20181104 21:32:41.543" starttime="20181104 21:32:41.541"></status>
+<msg timestamp="20181104 22:17:03.303" level="INFO">Executing : Delete All Rows From Table  |  DELETE FROM todos; </msg>
+<status status="PASS" endtime="20181104 22:17:03.304" starttime="20181104 22:17:03.303"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>Table Cleared</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.544" level="INFO">Table Cleared</msg>
-<status status="PASS" endtime="20181104 21:32:41.544" starttime="20181104 21:32:41.543"></status>
+<msg timestamp="20181104 22:17:03.305" level="INFO">Table Cleared</msg>
+<status status="PASS" endtime="20181104 22:17:03.305" starttime="20181104 22:17:03.304"></status>
 </kw>
-<status status="PASS" endtime="20181104 21:32:41.544" starttime="20181104 21:32:41.537"></status>
+<status status="PASS" endtime="20181104 22:17:03.305" starttime="20181104 22:17:03.297"></status>
 </kw>
-<status status="PASS" endtime="20181104 21:32:41.545" starttime="20181104 21:32:41.535"></status>
+<status status="PASS" endtime="20181104 22:17:03.306" starttime="20181104 22:17:03.296"></status>
 </kw>
 <kw name="Rest Post">
 <tags>
@@ -344,8 +296,8 @@
 <arg>temp-name</arg>
 <arg>${protocolHostPort}</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.548" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20181104 21:32:41.549" starttime="20181104 21:32:41.548"></status>
+<msg timestamp="20181104 22:17:03.308" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20181104 22:17:03.309" starttime="20181104 22:17:03.308"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -355,8 +307,8 @@
 <assign>
 <var>${headers}</var>
 </assign>
-<msg timestamp="20181104 21:32:41.551" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
-<status status="PASS" endtime="20181104 21:32:41.551" starttime="20181104 21:32:41.550"></status>
+<msg timestamp="20181104 22:17:03.311" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20181104 22:17:03.311" starttime="20181104 22:17:03.310"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the</doc>
@@ -369,38 +321,20 @@
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20181104 21:32:41.573" level="INFO">Post Request using : alias=temp-name, uri=/todos, data={"x" :"test"}, headers={u'Content-Type': u'application/json'}, files=None, allow_redirects=True </msg>
-<msg timestamp="20181104 21:32:41.573" level="INFO">${result} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.573" starttime="20181104 21:32:41.552"></status>
+<msg timestamp="20181104 22:17:03.318" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e210&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.529" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e410&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.952" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e610&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.958" level="FAIL">ConnectionError: HTTPConnectionPool(host='ufp-sidt-example-app', port=3000): Max retries exceeded with url: /todos (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e7d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',))</msg>
+<status status="FAIL" endtime="20181104 22:17:03.959" starttime="20181104 22:17:03.311"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Response Text ${result.text}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.574" level="INFO">Response Text [{"errorType":"MISSING_REQUIRED_PROPERTY","trace":[{"stepName":"ToDo"},{"stepName":"todo"}]},{"errorType":"ADDITIONAL_PROPERTY","trace":[{"stepName":"ToDo"},{"stepName":"x"}]}]</msg>
-<status status="PASS" endtime="20181104 21:32:41.574" starttime="20181104 21:32:41.574"></status>
-</kw>
-<msg timestamp="20181104 21:32:41.575" level="INFO">${result} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.575" starttime="20181104 21:32:41.546"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>400</arg>
-<arg>${result.status_code}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.577" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'int'&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.577" starttime="20181104 21:32:41.576"></status>
+<status status="FAIL" endtime="20181104 22:17:03.959" starttime="20181104 22:17:03.306"></status>
 </kw>
 <doc>testing index of todos in browser</doc>
 <tags>
 <tag>backend</tag>
 <tag>service</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:41.578" critical="no" starttime="20181104 21:32:41.533"></status>
+<status status="FAIL" endtime="20181104 22:17:03.960" critical="no" starttime="20181104 22:17:03.295">ConnectionError: HTTPConnectionPool(host='ufp-sidt-example-app', port=3000): Max retries exceeded with url: /todos (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e7d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',))</status>
 </test>
 <test id="s1-s1-s3-t3" name="Test Service Index Todos Happy">
 <kw type="setup" name="Empty Database" library="Database">
@@ -423,28 +357,28 @@
 <arg>todo-mysql</arg>
 <arg>${MYSQL_PORT}</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.584" level="INFO">Connecting using : pymysql.connect(db=sidt-todo-app, user=root, passwd=root, host=todo-mysql, port=3306, charset=None) </msg>
-<status status="PASS" endtime="20181104 21:32:41.587" starttime="20181104 21:32:41.583"></status>
+<msg timestamp="20181104 22:17:03.966" level="INFO">Connecting using : pymysql.connect(db=sidt-todo-app, user=root, passwd=root, host=todo-mysql, port=3306, charset=None) </msg>
+<status status="PASS" endtime="20181104 22:17:03.967" starttime="20181104 22:17:03.965"></status>
 </kw>
 <kw name="Delete All Rows From Table" library="DatabaseLibrary">
 <doc>Delete all the rows within a given table. Set optional input `sansTran` to True to run command without an</doc>
 <arguments>
 <arg>todos</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.588" level="INFO">Executing : Delete All Rows From Table  |  DELETE FROM todos; </msg>
-<status status="PASS" endtime="20181104 21:32:41.589" starttime="20181104 21:32:41.587"></status>
+<msg timestamp="20181104 22:17:03.968" level="INFO">Executing : Delete All Rows From Table  |  DELETE FROM todos; </msg>
+<status status="PASS" endtime="20181104 22:17:03.969" starttime="20181104 22:17:03.968"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>Table Cleared</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.590" level="INFO">Table Cleared</msg>
-<status status="PASS" endtime="20181104 21:32:41.591" starttime="20181104 21:32:41.590"></status>
+<msg timestamp="20181104 22:17:03.970" level="INFO">Table Cleared</msg>
+<status status="PASS" endtime="20181104 22:17:03.970" starttime="20181104 22:17:03.970"></status>
 </kw>
-<status status="PASS" endtime="20181104 21:32:41.591" starttime="20181104 21:32:41.583"></status>
+<status status="PASS" endtime="20181104 22:17:03.971" starttime="20181104 22:17:03.964"></status>
 </kw>
-<status status="PASS" endtime="20181104 21:32:41.591" starttime="20181104 21:32:41.582"></status>
+<status status="PASS" endtime="20181104 22:17:03.971" starttime="20181104 22:17:03.963"></status>
 </kw>
 <kw name="Rest Post">
 <tags>
@@ -466,8 +400,8 @@
 <arg>temp-name</arg>
 <arg>${protocolHostPort}</arg>
 </arguments>
-<msg timestamp="20181104 21:32:41.595" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20181104 21:32:41.596" starttime="20181104 21:32:41.594"></status>
+<msg timestamp="20181104 22:17:03.974" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20181104 22:17:03.975" starttime="20181104 22:17:03.973"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -477,8 +411,8 @@
 <assign>
 <var>${headers}</var>
 </assign>
-<msg timestamp="20181104 21:32:41.598" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
-<status status="PASS" endtime="20181104 21:32:41.598" starttime="20181104 21:32:41.597"></status>
+<msg timestamp="20181104 22:17:03.977" level="INFO">${headers} = {u'Content-Type': u'application/json'}</msg>
+<status status="PASS" endtime="20181104 22:17:03.977" starttime="20181104 22:17:03.976"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the</doc>
@@ -491,205 +425,23 @@
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20181104 21:32:41.615" level="INFO">Post Request using : alias=temp-name, uri=/todos, data={"todo":"ola"}, headers={u'Content-Type': u'application/json'}, files=None, allow_redirects=True </msg>
-<msg timestamp="20181104 21:32:41.616" level="INFO">${result} = &lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.616" starttime="20181104 21:32:41.598"></status>
+<msg timestamp="20181104 22:17:03.985" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a190&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:04.194" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a9d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:04.603" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a710&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:04.609" level="FAIL">ConnectionError: HTTPConnectionPool(host='ufp-sidt-example-app', port=3000): Max retries exceeded with url: /todos (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a350&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',))</msg>
+<status status="FAIL" endtime="20181104 22:17:04.609" starttime="20181104 22:17:03.978"></status>
 </kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Response Text ${result.text}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.617" level="INFO">Response Text </msg>
-<status status="PASS" endtime="20181104 21:32:41.617" starttime="20181104 21:32:41.616"></status>
-</kw>
-<msg timestamp="20181104 21:32:41.618" level="INFO">${result} = &lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.618" starttime="20181104 21:32:41.592"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>204</arg>
-<arg>${result.status_code}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.619" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'int'&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.619" starttime="20181104 21:32:41.619"></status>
-</kw>
-<kw name="Get Items">
-<tags>
-<tag>backend</tag>
-<tag>critical</tag>
-<tag>service</tag>
-</tags>
-<doc>get all todo items</doc>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Rest Get">
-<tags>
-<tag>backend</tag>
-<tag>critical</tag>
-<tag>service</tag>
-</tags>
-<arguments>
-<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
-<arg>/todos</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>temp-name</arg>
-<arg>${protocolHostPort}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.623" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20181104 21:32:41.624" starttime="20181104 21:32:41.622"></status>
-</kw>
-<kw name="Get Request" library="RequestsLibrary">
-<doc>Send a GET request on the session object found using the</doc>
-<arguments>
-<arg>temp-name</arg>
-<arg>${uri}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20181104 21:32:41.654" level="INFO">Get Request using : alias=temp-name, uri=/todos, headers=None json=None</msg>
-<msg timestamp="20181104 21:32:41.654" level="INFO">${result} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.655" starttime="20181104 21:32:41.625"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Response Text ${result.text}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.656" level="INFO">Response Text [{"id":1,"todo":"ola"}]</msg>
-<status status="PASS" endtime="20181104 21:32:41.656" starttime="20181104 21:32:41.655"></status>
-</kw>
-<msg timestamp="20181104 21:32:41.656" level="INFO">${result} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.657" starttime="20181104 21:32:41.621"></status>
-</kw>
-<msg timestamp="20181104 21:32:41.657" level="INFO">${result} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.657" starttime="20181104 21:32:41.620"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>200</arg>
-<arg>${result.status_code}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.659" level="INFO">Argument types are:
-&lt;type 'unicode'&gt;
-&lt;type 'int'&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.659" starttime="20181104 21:32:41.658"></status>
-</kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<doc>Get Value From JSON using JSONPath</doc>
-<arguments>
-<arg>${result.json()}</arg>
-<arg>$.[0].id</arg>
-</arguments>
-<assign>
-<var>${count}</var>
-</assign>
-<msg timestamp="20181104 21:32:41.815" level="INFO">${count} = [1]</msg>
-<status status="PASS" endtime="20181104 21:32:41.815" starttime="20181104 21:32:41.660"></status>
-</kw>
-<kw name="Get Item">
-<tags>
-<tag>backend</tag>
-<tag>critical</tag>
-<tag>service</tag>
-</tags>
-<doc>get a todo item</doc>
-<arguments>
-<arg>${count[0]}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Rest Get">
-<tags>
-<tag>backend</tag>
-<tag>critical</tag>
-<tag>service</tag>
-</tags>
-<arguments>
-<arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
-<arg>/todos/${itemId}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>temp-name</arg>
-<arg>${protocolHostPort}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.820" level="INFO">Creating Session using : alias=temp-name, url=http://ufp-sidt-example-app:3000, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20181104 21:32:41.821" starttime="20181104 21:32:41.820"></status>
-</kw>
-<kw name="Get Request" library="RequestsLibrary">
-<doc>Send a GET request on the session object found using the</doc>
-<arguments>
-<arg>temp-name</arg>
-<arg>${uri}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<msg timestamp="20181104 21:32:41.849" level="INFO">Get Request using : alias=temp-name, uri=/todos/1, headers=None json=None</msg>
-<msg timestamp="20181104 21:32:41.849" level="INFO">${result} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.849" starttime="20181104 21:32:41.822"></status>
-</kw>
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Response Text ${result.text}</arg>
-</arguments>
-<msg timestamp="20181104 21:32:41.851" level="INFO">Response Text {"id":1,"todo":"ola"}</msg>
-<status status="PASS" endtime="20181104 21:32:41.851" starttime="20181104 21:32:41.850"></status>
-</kw>
-<msg timestamp="20181104 21:32:41.852" level="INFO">${result} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.852" starttime="20181104 21:32:41.818"></status>
-</kw>
-<msg timestamp="20181104 21:32:41.852" level="INFO">${result} = &lt;Response [400]&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:41.852" starttime="20181104 21:32:41.816"></status>
-</kw>
-<kw name="Get Value From Json" library="JSONLibrary">
-<doc>Get Value From JSON using JSONPath</doc>
-<arguments>
-<arg>${result.json()}</arg>
-<arg>$.todo</arg>
-</arguments>
-<assign>
-<var>${text}</var>
-</assign>
-<msg timestamp="20181104 21:32:41.984" level="INFO">${text} = [u'ola']</msg>
-<status status="PASS" endtime="20181104 21:32:41.985" starttime="20181104 21:32:41.853"></status>
-</kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<arguments>
-<arg>ola</arg>
-<arg>${text[0]}</arg>
-</arguments>
-<status status="PASS" endtime="20181104 21:32:41.987" starttime="20181104 21:32:41.986"></status>
+<status status="FAIL" endtime="20181104 22:17:04.610" starttime="20181104 22:17:03.971"></status>
 </kw>
 <doc>testing index of todos in browser</doc>
 <tags>
 <tag>backend</tag>
 <tag>service</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:41.988" critical="no" starttime="20181104 21:32:41.579"></status>
+<status status="FAIL" endtime="20181104 22:17:04.610" critical="no" starttime="20181104 22:17:03.961">ConnectionError: HTTPConnectionPool(host='ufp-sidt-example-app', port=3000): Max retries exceeded with url: /todos (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a350&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',))</status>
 </test>
 <doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
-<status status="PASS" endtime="20181104 21:32:41.991" starttime="20181104 21:32:40.898"></status>
+<status status="PASS" endtime="20181104 22:17:04.612" starttime="20181104 22:17:02.157"></status>
 </suite>
 <suite source="/opt/robotframework/tests/test/TestServiceFrontend.robot" id="s1-s1-s4" name="TestServiceFrontend">
 <test id="s1-s1-s4-t1" name="Test Service Index Todos">
@@ -699,62 +451,69 @@
 <arg>http://${SERVICE_NAME1}:${SERVICE_PORT1}</arg>
 <arg>Chrome</arg>
 </arguments>
-<msg timestamp="20181104 21:32:42.011" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-sidt-example-app-client:80'.</msg>
-<status status="PASS" endtime="20181104 21:32:44.012" starttime="20181104 21:32:42.010"></status>
+<msg timestamp="20181104 22:17:04.632" level="INFO">Opening browser 'Chrome' to base url 'http://ufp-sidt-example-app-client:80'.</msg>
+<status status="PASS" endtime="20181104 22:17:06.593" starttime="20181104 22:17:04.631"></status>
 </kw>
 <kw name="Wait Until Page Contains" library="SeleniumLibrary">
 <doc>Waits until ``text`` appears on current page.</doc>
 <arguments>
 <arg>UfpCore</arg>
 </arguments>
-<status status="PASS" endtime="20181104 21:32:44.066" starttime="20181104 21:32:44.013"></status>
-</kw>
 <kw name="Capture Page Screenshot" library="SeleniumLibrary">
 <doc>Takes screenshot of the current page and embeds it into log file.</doc>
-<arguments>
-<arg>ServiceTodos.png</arg>
-</arguments>
-<msg timestamp="20181104 21:32:44.610" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="ServiceTodos.png"&gt;&lt;img src="ServiceTodos.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20181104 21:32:44.610" starttime="20181104 21:32:44.067"></status>
+<msg timestamp="20181104 22:17:12.137" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20181104 22:17:12.137" starttime="20181104 22:17:11.622"></status>
+</kw>
+<msg timestamp="20181104 22:17:12.138" level="FAIL">Text 'UfpCore' did not appear in 5 seconds.</msg>
+<status status="FAIL" endtime="20181104 22:17:12.138" starttime="20181104 22:17:06.593"></status>
 </kw>
 <doc>testing index of todos in browser</doc>
 <tags>
 <tag>frontend</tag>
 <tag>service</tag>
 </tags>
-<status status="PASS" endtime="20181104 21:32:44.611" critical="no" starttime="20181104 21:32:42.007"></status>
+<status status="FAIL" endtime="20181104 22:17:12.138" critical="no" starttime="20181104 22:17:04.627">Text 'UfpCore' did not appear in 5 seconds.</status>
 </test>
 <doc>This test assumes that the infra and debug stack is running.Since this is a SIDT template we believe the debug setup ist part of the provided value hence testing the debug frontend is part of the job</doc>
-<status status="PASS" endtime="20181104 21:32:44.616" starttime="20181104 21:32:41.998"></status>
+<status status="PASS" endtime="20181104 22:17:12.141" starttime="20181104 22:17:04.618"></status>
 </suite>
-<status status="PASS" endtime="20181104 21:32:44.627" starttime="20181104 21:32:23.323"></status>
+<status status="PASS" endtime="20181104 22:17:12.151" starttime="20181104 22:16:41.245"></status>
 </suite>
-<status status="PASS" endtime="20181104 21:32:44.638" starttime="20181104 21:32:23.262"></status>
+<status status="PASS" endtime="20181104 22:17:12.161" starttime="20181104 22:16:41.189"></status>
 </suite>
 <statistics>
 <total>
 <stat fail="0" pass="0">Critical Tests</stat>
-<stat fail="0" pass="8">All Tests</stat>
+<stat fail="5" pass="3">All Tests</stat>
 </total>
 <tag>
 <stat info="critical" fail="0" pass="0">critical</stat>
 <stat info="non-critical" fail="0" pass="0">noncritical</stat>
-<stat fail="0" pass="3">backend</stat>
-<stat fail="0" pass="3">debug</stat>
-<stat fail="0" pass="1">frontend</stat>
-<stat fail="0" pass="3">non-critical</stat>
+<stat fail="3" pass="0">backend</stat>
+<stat fail="1" pass="2">debug</stat>
+<stat fail="1" pass="0">frontend</stat>
+<stat fail="1" pass="2">non-critical</stat>
 <stat fail="0" pass="1">playground</stat>
-<stat fail="0" pass="4">service</stat>
+<stat fail="4" pass="0">service</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Tests" pass="8">Tests</stat>
-<stat fail="0" id="s1-s1" name="Test" pass="8">Tests.Test</stat>
+<stat fail="5" id="s1" name="Tests" pass="3">Tests</stat>
+<stat fail="5" id="s1-s1" name="Test" pass="3">Tests.Test</stat>
 <stat fail="0" id="s1-s1-s1" name="HelloWorld" pass="1">Tests.Test.HelloWorld</stat>
-<stat fail="0" id="s1-s1-s2" name="TestDebugSetup" pass="3">Tests.Test.TestDebugSetup</stat>
-<stat fail="0" id="s1-s1-s3" name="TestServiceBackend" pass="3">Tests.Test.TestServiceBackend</stat>
-<stat fail="0" id="s1-s1-s4" name="TestServiceFrontend" pass="1">Tests.Test.TestServiceFrontend</stat>
+<stat fail="1" id="s1-s1-s2" name="TestDebugSetup" pass="2">Tests.Test.TestDebugSetup</stat>
+<stat fail="3" id="s1-s1-s3" name="TestServiceBackend" pass="0">Tests.Test.TestServiceBackend</stat>
+<stat fail="1" id="s1-s1-s4" name="TestServiceFrontend" pass="0">Tests.Test.TestServiceFrontend</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20181104 22:17:02.667" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a795494d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:02.872" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a795496d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.281" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a795498d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.318" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e210&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.529" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e410&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.952" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7950e610&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:03.985" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a190&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:04.194" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a9d0&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
+<msg timestamp="20181104 22:17:04.603" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f9a7955a710&gt;: Failed to establish a new connection: [Errno -2] Name does not resolve',)': /todos</msg>
 </errors>
 </robot>

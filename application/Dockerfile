@@ -12,6 +12,5 @@ WORKDIR /application
 # Create Swagger apidoc
 RUN npm run swagger
 
-
 CMD ["npm","run","app"]
 
